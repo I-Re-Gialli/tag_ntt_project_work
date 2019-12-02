@@ -4,31 +4,24 @@
 
 Le grafiche sono reperibili da questo [link](https://zpl.io/Vxvl4lR) con le credenziali:
 
->**username**: tag_ntt_project_work <br>
->**password**: zeplin123!
+> **username**: tag_ntt_project_work <br> >**password**: zeplin123!
 
 ## Servizi
 
 I servizi REST disponibili sono:
 
 - Store lis
->**URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json <br>
-> **Method**: GET
+  > **URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/stores.json <br> > **Method**: GET
 - Wizard config
-> **URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json <br>
-> **Method**: GET
+  > **URL**: https://mctsuite.it.nttdata-emea.com/preview/tag_ntt_project_work/wizard_config.json <br> > **Method**: GET
 - Login
-> **URL**: https://api-dev-commercio.leroymerlin.it/api/v1/customer/1_0_0/authentication/login <br>
-> **Method**: POST <br>
-> **Headers**: {x-square-api-key: testToken} <br>
-> **Body**: {
-	"username": "tonio.cartonio@authent.it",
-	"password": "Prova123",
-	"rememberMe": false
-}
+  > **URL**: https://api-dev-commercio.leroymerlin.it/api/v1/customer/1_0_0/authentication/login <br> > **Method**: POST <br> > **Headers**: {x-square-api-key: testToken} <br> > **Body**: {
+      "username": "tonio.cartonio@authent.it",
+      "password": "Prova123",
+      "rememberMe": false
+  }
 
------
-
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -98,3 +91,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Modificato da Gerardo
