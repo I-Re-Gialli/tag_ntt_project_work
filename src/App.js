@@ -1,11 +1,41 @@
-import React from 'react';
-import logo from './assets/img/logo.svg';
-import img_attivita_1 from './assets/img/attivita_1.jpg';
-import './App.css';
+import React from "react";
+import ListService from "./services/ListService.js";
+import logo from "./assets/img/logo.svg";
+import Select from "./components/Select.js";
+import BreadCrumb from "./components/BreadCrumb.js";
+import CardContainer from "./components/CardContainer.js";
+import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stores: [],
+      steps: [],
+      activeIndex: 1
+    };
+  }
+  componentDidMount() {
+    ListService.fetchStore().then(stores => {
+      this.setState({
+        stores: stores.data
+      });
+    });
 
+    ListService.fetchWizard().then(wizard => {
+      this.setState({
+        steps: wizard.data.steps
+      });
+    });
+  }
   render() {
+    const { steps, activeIndex, stores } = this.state;
+    console.log(steps);
+    const currentStep = steps[activeIndex];
+
+    const cardContainer = currentStep ? (
+      <CardContainer answers={currentStep.answers}></CardContainer>
+    ) : null;
 
     return (
       <div className="App">
@@ -13,48 +43,14 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div className="App-container">
-
-          {/* CHIP CONTAINER */}
-          <div className="chip-container">
-            <div className="chip">
-              <span>Chip 1</span>
-            </div>
-            <div className="chip active">
-              <span>Chip 2</span>
-            </div>
-          </div>
-
+          <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
-
-          {/* CARDS CONTAIONER  */}
-          <div className="step-cards-container">
-            <div className="step-card">
-              <img src={img_attivita_1} alt="img_alt" />
-              <div className="title">Tenere in ordine il mio giardino</div>
-              <div className="description">Falciatura ordinaria del prato, rifinitura aiuole</div>
-            </div>
-
-            <div className="step-card">
-              <img src={img_attivita_1} alt="img_alt" />
-              <div className="title">Tenere in ordine il mio giardino</div>
-              <div className="description">Falciatura ordinaria del prato, rifinitura aiuole</div>
-            </div>
-
-            <div className="step-card">
-              <img src={img_attivita_1} alt="img_alt" />
-              <div className="title">Tenere in ordine il mio giardino</div>
-              <div className="description">Falciatura ordinaria del prato, rifinitura aiuole</div>
-            </div>
-          </div>
-
-          <br />
-
-          {/* BUTTON */}
+          {cardContainer}
           <div className="button disabled">
             <span>CONTINUA</span>
           </div>
-
         </div>
+        <Select stores={stores} />
       </div>
     );
   }
