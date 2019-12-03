@@ -1,10 +1,10 @@
 import Api from "./Api.js";
 
 export default {
-  fetchStore() {
+  getStore() {
     return Api().get("stores.json");
   },
-  fetchWizard() {
+  getWizard() {
     return Api().get("wizard_config.json");
   }
 };

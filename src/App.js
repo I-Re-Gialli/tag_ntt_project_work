@@ -1,9 +1,11 @@
 import React from "react";
 import ListService from "./services/ListService.js";
-import logo from "./assets/img/logo.svg";
+import Header from "./components/Header.js";
 import Select from "./components/Select.js";
 import BreadCrumb from "./components/BreadCrumb.js";
 import CardContainer from "./components/CardContainer.js";
+import Button from "./components/Button.js";
+import Result from "./components/Result.js";
 import "./App.css";
 
 class App extends React.Component {
@@ -16,13 +18,13 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    ListService.fetchStore().then(stores => {
+    ListService.getStore().then(stores => {
       this.setState({
         stores: stores.data
       });
     });
 
-    ListService.fetchWizard().then(wizard => {
+    ListService.getWizard().then(wizard => {
       this.setState({
         steps: wizard.data.steps
       });
@@ -30,7 +32,6 @@ class App extends React.Component {
   }
   render() {
     const { steps, activeIndex, stores } = this.state;
-    console.log(steps);
     const currentStep = steps[activeIndex];
 
     const cardContainer = currentStep ? (
@@ -39,18 +40,15 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
+        <Header />
         <div className="App-container">
           <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
           {cardContainer}
-          <div className="button disabled">
-            <span>CONTINUA</span>
-          </div>
+          <Button name="CONTINUA" />
         </div>
         <Select stores={stores} />
+        <Result activeIndex={activeIndex} steps={steps} />
       </div>
     );
   }
