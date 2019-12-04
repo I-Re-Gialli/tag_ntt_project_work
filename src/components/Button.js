@@ -2,9 +2,12 @@ import React from "react";
 
 class Button extends React.Component {
   render() {
-    const { name } = this.props;
+    const { className, name, url } = this.props;
     return (
-      <div className="button disabled">
+      <div
+        className={className}
+        onClick={() => window.open(`${url}`, "_blank")}
+      >
         <span>{name}</span>
       </div>
     );

@@ -6,6 +6,7 @@ import BreadCrumb from "./components/BreadCrumb.js";
 import CardContainer from "./components/CardContainer.js";
 import Button from "./components/Button.js";
 import Result from "./components/Result.js";
+// import navigateTree from "./lib/navigateTree.js";
 import "./App.css";
 
 class App extends React.Component {
@@ -14,9 +15,12 @@ class App extends React.Component {
     this.state = {
       stores: [],
       steps: [],
+      tree: [],
+      results: [],
       activeIndex: 1
     };
   }
+
   componentDidMount() {
     ListService.getStore().then(stores => {
       this.setState({
@@ -26,14 +30,17 @@ class App extends React.Component {
 
     ListService.getWizard().then(wizard => {
       this.setState({
-        steps: wizard.data.steps
+        steps: wizard.data.steps,
+        tree: wizard.data.tree,
+        results: wizard.data.results
       });
     });
   }
-  render() {
-    const { steps, activeIndex, stores } = this.state;
-    const currentStep = steps[activeIndex];
 
+  render() {
+    const { steps, activeIndex, stores, results } = this.state;
+
+    const currentStep = steps[activeIndex];
     const cardContainer = currentStep ? (
       <CardContainer answers={currentStep.answers}></CardContainer>
     ) : null;
@@ -45,10 +52,10 @@ class App extends React.Component {
           <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
           {cardContainer}
-          <Button name="CONTINUA" />
+          <Button className="button disabled" name="CONTINUA" />
         </div>
         <Select stores={stores} />
-        <Result activeIndex={activeIndex} steps={steps} />
+        <Result activeIndex={activeIndex} steps={steps} results={results} />
       </div>
     );
   }
