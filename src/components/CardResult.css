@@ -1,0 +1,75 @@
+
+@font-face {
+  font-family: LeroyMerlinLight;
+  src: url('../assets/fonts/LeroyMerlinSansLight.eot');
+  src: url('../assets/fonts/LeroyMerlinSansLight.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/LeroyMerlinSansLight.woff') format('woff'),
+    url('../assets/fonts/LeroyMerlinSansLight.ttf') format('truetype'),
+    url('../assets/fonts/LeroyMerlinSansLight.svg#3dumbregular') format('svg');
+}
+@font-face {
+    font-family: LeroyMerlinBold;
+    src: url('../assets/fonts/LeroyMerlinSansBold.eot');
+    src: url('../assets/fonts/LeroyMerlinSansBold.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/LeroyMerlinSansBold.woff') format('woff'),
+      url('../assets/fonts/LeroyMerlinSansBold.ttf') format('truetype'),
+      url('../assets/fonts/LeroyMerlinSansBold.svg#3dumbregular') format('svg');
+  }
+  
+  @font-face {
+    font-family: LeroyMerlinRegular;
+    src: url('../assets/fonts/LeroyMerlinSansRegular.eot');
+    src: url('../assets/fonts/LeroyMerlinSansRegular.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/LeroyMerlinSansRegular.woff') format('woff'),
+      url('../assets/fonts/LeroyMerlinSansRegular.ttf') format('truetype'),
+      url('../assets/fonts/LeroyMerlinSansRegular.svg#3dumbregular') format('svg');
+  }
+
+  .cardResult{
+    margin: 0px;
+  }
+
+  .Rectangle {
+    width: 345px;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+  }
+
+  .paraResult{
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0;
+      font-family: LeroyMerlinLight;
+      font-weight: 200;
+      margin: 18px;
+  }
+
+  .imgResult{
+      width: 308px;
+      height: 76px;
+      margin-left: 15px;
+      margin-right: 22px;
+
+  }
+.titleResult {
+    width: 324px;
+    height: 40px;
+    font-family: LeroyMerlinSans, sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: normal;
+    color: #000000;
+    line-height: 20px;
+    padding: 20px;
+    letter-spacing: 0;
+    margin-top: 18px;
+    
+  }
+ 
+
+  /*-----media query----*/
+   @media(max-width: 767px){ 
+    .Rectangle{width: 90%; margin: 5px; margin-left: 18px;}} 

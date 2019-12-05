@@ -27,6 +27,7 @@
 
 .App {
   font-family: LeroyMerlinRegular;
+  background-color:  #f8f8f8;
 }
 
 .App-logo {
@@ -101,11 +102,11 @@
 
 .button {
   font-family: LeroyMerlinBold;
-  width: 376px;
+  width: auto;
   height: 60px;
   background-color: #66cc33;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   line-height: 60px;
   cursor: pointer;
@@ -116,6 +117,23 @@
   border: solid 1px #9b9b9b;
   color: #9b9b9b;
 }
+
+.result{
+    width: 325px;
+    height: 96px;
+    font-family: LeroyMerlinSans, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.07;
+    padding-left: 38px;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+  }
+
+
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 

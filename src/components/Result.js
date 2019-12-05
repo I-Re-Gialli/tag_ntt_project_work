@@ -10,7 +10,7 @@ class Result extends React.Component {
       <div>
         <Header />
         <BreadCrumb activeIndex={activeIndex} steps={steps} />
-        <h1>Ecco cosa ti aiuterà a svolgere meglio il tuo lavoro!</h1>
+        <h1 className="result">Ecco cosa ti aiuterà a svolgere meglio il tuo lavoro!</h1>
         <CardResult results={results} />
       </div>
     );
