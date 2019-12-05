@@ -4,14 +4,14 @@ class Button extends React.Component {
   render() {
     const { className, name, url } = this.props;
     return (
-      <div
+      <button
         className={className}
         onClick={() => window.open(`${url}`, "_blank")}
       >
         <span>{name}</span>
-      </div>
+      </button>
     );
   }
 }
-
+//att disable use tag button
 export default Button;

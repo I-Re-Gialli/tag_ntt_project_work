@@ -1,35 +1,28 @@
 import React from "react";
 import "./CardResult.css";
-import Button from "./Button.js";
 import attivita_1 from "../assets/img/attivita_1.jpg";
 
 class CardResult extends React.Component {
   render() {
-    const { results } = this.props;
+    const { results, resultNavigate } = this.props;
 
-    const treeResults = [11,5];
-    const arrResult = [];
+    const selectedResults = results.filter(r => {
+      if (!resultNavigate) {
+        return false;
+      }
+      return resultNavigate.includes(r.id);
+    });
 
-    treeResults.map(treeResult =>
-      results.map(res => {
-        if (res.id === treeResult) {
-          arrResult.push(res);
-        }
-      })
-    );
-
-    const resultMap = arrResult.map(res => (
-      <div className="Rectangle"> 
-      <div className="cardResult" key={res.id}>
-        <h1 className="titleResult">{res.title}</h1>
-        <img className="imgResult" src={attivita_1} alt='giardino'></img>
-        <p className="paraResult">{res.description}</p>
-        <Button
-          className={"button"}
-          name="ECCO COSA ABBIAMO SCELTO PER TE"
-          url={res.url}
-        />
-      </div>
+    const resultMap = selectedResults.map(res => (
+      <div className="Rectangle" key={res.id}>
+        <div className="cardResult" key={res.id}>
+          <h1 className="titleResult">{res.title}</h1>
+          <img className="imgResult" src={attivita_1} alt="giardino"></img>
+          <p className="paraResult">{res.description}</p>
+          <a className="button" href={res.url}>
+            ECCO COSA ABBIAMO SCELTO PER TE
+          </a>
+        </div>
       </div>
     ));
 

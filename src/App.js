@@ -4,7 +4,6 @@ import Header from "./components/Header.js";
 import Select from "./components/Select.js";
 import BreadCrumb from "./components/BreadCrumb.js";
 import CardContainer from "./components/CardContainer.js";
-import Button from "./components/Button.js";
 import Result from "./components/Result.js";
 // import navigateTree from "./lib/navigateTree.js";
 import "./App.css";
@@ -15,10 +14,49 @@ class App extends React.Component {
     this.state = {
       stores: [],
       steps: [],
-      tree: [],
+      tree: {},
       results: [],
-      activeIndex: 1
+      selection: [],
+      activeIndex: 0,
+      completed: false
     };
+    this.handleContinue = this.handleContinue.bind(this);
+    this.selectCard = this.selectCard.bind(this);
+  }
+
+  navigate(selection, tree, numberOfSteps) {
+    if (numberOfSteps <= 0) {
+      return undefined;
+    }
+
+    if (!tree) {
+      return undefined;
+    }
+
+    if (!tree.children) {
+      return undefined;
+    }
+
+    if (!selection) {
+      return undefined;
+    }
+
+    if (selection.length < numberOfSteps) {
+      return undefined;
+    }
+
+    const lastElement = selection.reduce((acc, currentSelection) => {
+      if (!acc) {
+        return acc;
+      }
+      return acc.children[currentSelection];
+    }, tree);
+
+    if (!lastElement) {
+      return undefined;
+    }
+
+    return lastElement.results;
   }
 
   componentDidMount() {
@@ -37,14 +75,48 @@ class App extends React.Component {
     });
   }
 
+  handleContinue() {
+    const newActiveIndex = this.state.activeIndex + 1;
+    const completed = newActiveIndex >= this.state.steps.length;
+    this.setState({ activeIndex: this.state.activeIndex + 1, completed });
+  }
+
+  selectCard(cardIndex) {
+    const { activeIndex, selection } = this.state;
+    selection[activeIndex] = cardIndex;
+    this.setState({ selection });
+  }
+
   render() {
-    const { steps, activeIndex, stores, results } = this.state;
+    const {
+      steps,
+      activeIndex,
+      stores,
+      tree,
+      selection,
+      results,
+      completed
+    } = this.state;
+
+    const resultNavigate = this.navigate(selection, tree, steps.length);
 
     const currentStep = steps[activeIndex];
-    const cardContainer = currentStep ? (
-      <CardContainer answers={currentStep.answers}></CardContainer>
-    ) : null;
+    const cardContainer =
+      currentStep && !completed ? (
+        <CardContainer
+          answers={currentStep.answers}
+          selectCard={this.selectCard}
+        ></CardContainer>
+      ) : null;
 
+    const resultsComponent = completed ? (
+      <Result
+        activeIndex={activeIndex}
+        steps={steps}
+        results={results}
+        resultNavigate={resultNavigate}
+      />
+    ) : null;
     return (
       <div className="App">
         <Header />
@@ -52,10 +124,12 @@ class App extends React.Component {
           <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
           {cardContainer}
-          <Button className="button disabled" name="CONTINUA" />
+          <button className="button" onClick={this.handleContinue}>
+            CONTINUA
+          </button>
         </div>
         <Select stores={stores} />
-        <Result activeIndex={activeIndex} steps={steps} results={results} />
+        {resultsComponent}
       </div>
     );
   }
