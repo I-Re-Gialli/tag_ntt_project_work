@@ -16,7 +16,7 @@ class CardResult extends React.Component {
     const resultMap = selectedResults.map(res => (
       <div className="Rectangle" key={res.id}>
         <div className="cardResult" key={res.id}>
-          <h1 className="titleResult">{res.title}</h1>
+          <h2 className="titleResult">{res.title}</h2>
           <img className="imgResult" src={attivita_1} alt="giardino"></img>
           <p className="paraResult">{res.description}</p>
           <a className="button" href={res.url}>

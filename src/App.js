@@ -100,6 +100,11 @@ class App extends React.Component {
 
     const resultNavigate = this.navigate(selection, tree, steps.length);
 
+    const buttonActive = selection[activeIndex];
+    const isActive = typeof buttonActive !== "undefined";
+    const activeButton = isActive ? "button" : "button disabled";
+
+    console.log(isActive);
     const currentStep = steps[activeIndex];
     const cardContainer =
       currentStep && !completed ? (
@@ -124,7 +129,11 @@ class App extends React.Component {
           <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
           {cardContainer}
-          <button className="button" onClick={this.handleContinue}>
+          <button
+            className={activeButton}
+            onClick={this.handleContinue}
+            disabled={!isActive}
+          >
             CONTINUA
           </button>
         </div>
