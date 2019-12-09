@@ -3,11 +3,12 @@ import React from "react";
 class Chip extends React.Component {
   render() {
     const { active, title } = this.props;
-
     const activeClassName = active ? "chip active" : "chip";
-
     return (
-      <div className={activeClassName}>
+      <div
+        className={activeClassName}
+        onClick={active ? this.props.onClick : () => {}}
+      >
         <span>{title}</span>
       </div>
     );

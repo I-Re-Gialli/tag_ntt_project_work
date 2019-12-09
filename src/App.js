@@ -21,6 +21,15 @@ class App extends React.Component {
     };
     this.handleContinue = this.handleContinue.bind(this);
     this.selectCard = this.selectCard.bind(this);
+    this.selectChip = this.selectChip.bind(this);
+  }
+  selectChip(chipIndex) {
+    const removedAnswers = this.state.selection.slice(0, chipIndex);
+    this.setState({
+      activeIndex: chipIndex,
+      selection: removedAnswers
+    });
+    console.log(removedAnswers);
   }
 
   componentDidMount() {
@@ -86,7 +95,11 @@ class App extends React.Component {
       currentStep && !completed ? (
         <div className="App-container">
           <Header />
-          <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
+          <BreadCrumb
+            activeIndex={activeIndex}
+            selectChip={this.selectChip}
+            steps={steps}
+          />
           <br />
           {cardContainer}
           <button
