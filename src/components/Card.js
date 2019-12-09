@@ -5,11 +5,15 @@ class Card extends React.Component {
     const { answer, onClick } = this.props;
     const { image, title, description } = answer;
 
-    return (
+    return image ? (
       <div className="step-card" onClick={onClick}>
-        {/* <img src={require(`../assets/img/${image}`)} alt="img_alt" /> */}
-        <div className="title">{title}</div>
-        <div className="description">{description}</div>
+        <img src={require(`../assets/img/${image}`)} alt="img_alt" />
+        <h3 className="title">{title}</h3>
+        <p className="description">{description}</p>
+      </div>
+    ) : (
+      <div className="step-card" onClick={onClick}>
+        <button>{title}</button>
       </div>
     );
   }

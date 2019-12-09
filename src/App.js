@@ -5,7 +5,6 @@ import Select from "./components/Select.js";
 import BreadCrumb from "./components/BreadCrumb.js";
 import CardContainer from "./components/CardContainer.js";
 import Result from "./components/Result.js";
-// import navigateTree from "./lib/navigateTree.js";
 import "./App.css";
 
 class App extends React.Component {
@@ -104,13 +103,14 @@ class App extends React.Component {
     const isActive = typeof buttonActive !== "undefined";
     const activeButton = isActive ? "button" : "button disabled";
 
-    console.log(isActive);
     const currentStep = steps[activeIndex];
+
     const cardContainer =
       currentStep && !completed ? (
         <CardContainer
           answers={currentStep.answers}
           selectCard={this.selectCard}
+          question={currentStep.question}
         ></CardContainer>
       ) : null;
 
