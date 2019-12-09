@@ -1,33 +1,36 @@
 @font-face {
   font-family: LeroyMerlinBold;
-  src: url('./assets/fonts/LeroyMerlinSansBold.eot');
-  src: url('./assets/fonts/LeroyMerlinSansBold.eot?#iefix') format('embedded-opentype'),
-    url('./assets/fonts/LeroyMerlinSansBold.woff') format('woff'),
-    url('./assets/fonts/LeroyMerlinSansBold.ttf') format('truetype'),
-    url('./assets/fonts/LeroyMerlinSansBold.svg#3dumbregular') format('svg');
+  src: url("./assets/fonts/LeroyMerlinSansBold.eot");
+  src: url("./assets/fonts/LeroyMerlinSansBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/LeroyMerlinSansBold.woff") format("woff"),
+    url("./assets/fonts/LeroyMerlinSansBold.ttf") format("truetype"),
+    url("./assets/fonts/LeroyMerlinSansBold.svg#3dumbregular") format("svg");
 }
 
 @font-face {
   font-family: LeroyMerlinRegular;
-  src: url('./assets/fonts/LeroyMerlinSansRegular.eot');
-  src: url('./assets/fonts/LeroyMerlinSansRegular.eot?#iefix') format('embedded-opentype'),
-    url('./assets/fonts/LeroyMerlinSansRegular.woff') format('woff'),
-    url('./assets/fonts/LeroyMerlinSansRegular.ttf') format('truetype'),
-    url('./assets/fonts/LeroyMerlinSansRegular.svg#3dumbregular') format('svg');
+  src: url("./assets/fonts/LeroyMerlinSansRegular.eot");
+  src: url("./assets/fonts/LeroyMerlinSansRegular.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/LeroyMerlinSansRegular.woff") format("woff"),
+    url("./assets/fonts/LeroyMerlinSansRegular.ttf") format("truetype"),
+    url("./assets/fonts/LeroyMerlinSansRegular.svg#3dumbregular") format("svg");
 }
 
 @font-face {
   font-family: LeroyMerlinLight;
-  src: url('./assets/fonts/LeroyMerlinSansLight.eot');
-  src: url('./assets/fonts/LeroyMerlinSansLight.eot?#iefix') format('embedded-opentype'),
-    url('./assets/fonts/LeroyMerlinSansLight.woff') format('woff'),
-    url('./assets/fonts/LeroyMerlinSansLight.ttf') format('truetype'),
-    url('./assets/fonts/LeroyMerlinSansLight.svg#3dumbregular') format('svg');
+  src: url("./assets/fonts/LeroyMerlinSansLight.eot");
+  src: url("./assets/fonts/LeroyMerlinSansLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/LeroyMerlinSansLight.woff") format("woff"),
+    url("./assets/fonts/LeroyMerlinSansLight.ttf") format("truetype"),
+    url("./assets/fonts/LeroyMerlinSansLight.svg#3dumbregular") format("svg");
 }
 
 .App {
   font-family: LeroyMerlinRegular;
-  background-color:  #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 .App-logo {
@@ -80,7 +83,7 @@
 }
 
 .step-card:hover img {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .step-card img {
@@ -118,22 +121,20 @@
   color: #9b9b9b;
 }
 
-.result{
-    width: 325px;
-    height: 96px;
-    font-family: LeroyMerlinSans, sans-serif;
-    font-size: 30px;
-    font-weight: bolder;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.07;
-    padding-left: 38px;
-    letter-spacing: normal;
-    text-align: center;
-    color: #000000;
-  }
-
-
+.result {
+  width: 325px;
+  height: 96px;
+  font-family: LeroyMerlinSans, sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  padding-left: 38px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
@@ -146,7 +147,75 @@
 }
 
 /* tablet landscape */
-@media (min-width: 900px) {}
+@media (min-width: 900px) {
+}
 
 /* desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+  .App-header {
+    border-bottom: 4px solid #66cc33;
+  }
+
+  .chip-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 410px;
+    margin-top: 40px;
+  }
+
+  .chip {
+    height: 41px;
+    width: 140px;
+    background-color: #e9e9e9;
+    border-radius: 20.5px;
+    font-size: 18px;
+    text-align: center;
+    color: #9b9b9b;
+    margin-right: 20px;
+    cursor: pointer;
+    line-height: 46px;
+  }
+
+  .step-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    text-align: center;
+    margin-left: 330px;
+    margin-right: 330px;
+    padding-bottom: 70.3px;
+    font-family: LeroyMerlinSans, sans-serif;
+    text-align: center;
+    color: #000000;
+
+    display: inline-block;
+    width: 780px;
+    height: 34px;
+    font-size: 42px;
+  }
+
+  .step-card {
+    flex: 0 0 auto;
+    width: 315px;
+    cursor: pointer;
+    margin-right: 40px;
+  }
+
+  .button {
+    font-family: LeroyMerlinBold;
+    width: 375px;
+    height: 61px;
+    background-color: #66cc33;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    margin-top: 66px;
+    margin-left: 533px;
+  }
+}
