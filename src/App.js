@@ -1,7 +1,7 @@
 import React from "react";
-import ListService from "./services/ListService.js";
+import listServiceStore from "./services/listServiceStore.js";
+import listServiceWizard from "./services/listServiceWizard.js";
 import Header from "./components/Header.js";
-import Select from "./components/Select.js";
 import BreadCrumb from "./components/BreadCrumb.js";
 import CardContainer from "./components/CardContainer.js";
 import Result from "./components/Result.js";
@@ -23,49 +23,14 @@ class App extends React.Component {
     this.selectCard = this.selectCard.bind(this);
   }
 
-  navigate(selection, tree, numberOfSteps) {
-    if (numberOfSteps <= 0) {
-      return undefined;
-    }
-
-    if (!tree) {
-      return undefined;
-    }
-
-    if (!tree.children) {
-      return undefined;
-    }
-
-    if (!selection) {
-      return undefined;
-    }
-
-    if (selection.length < numberOfSteps) {
-      return undefined;
-    }
-
-    const lastElement = selection.reduce((acc, currentSelection) => {
-      if (!acc) {
-        return acc;
-      }
-      return acc.children[currentSelection];
-    }, tree);
-
-    if (!lastElement) {
-      return undefined;
-    }
-
-    return lastElement.results;
-  }
-
   componentDidMount() {
-    ListService.getStore().then(stores => {
+    listServiceStore.getStore().then(stores => {
       this.setState({
         stores: stores.data
       });
     });
 
-    ListService.getWizard().then(wizard => {
+    listServiceWizard.getWizard().then(wizard => {
       this.setState({
         steps: wizard.data.steps,
         tree: wizard.data.tree,
@@ -89,15 +54,18 @@ class App extends React.Component {
   render() {
     const {
       steps,
-      activeIndex,
-      stores,
       tree,
-      selection,
       results,
+      selection,
+      activeIndex,
       completed
     } = this.state;
 
-    const resultNavigate = this.navigate(selection, tree, steps.length);
+    const resultNavigate = listServiceWizard.navigate(
+      selection,
+      tree,
+      steps.length
+    );
 
     const buttonActive = selection[activeIndex];
     const isActive = typeof buttonActive !== "undefined";
@@ -114,18 +82,10 @@ class App extends React.Component {
         ></CardContainer>
       ) : null;
 
-    const resultsComponent = completed ? (
-      <Result
-        activeIndex={activeIndex}
-        steps={steps}
-        results={results}
-        resultNavigate={resultNavigate}
-      />
-    ) : null;
-    return (
-      <div className="App">
-        <Header />
+    const survey =
+      currentStep && !completed ? (
         <div className="App-container">
+          <Header />
           <BreadCrumb activeIndex={activeIndex} steps={steps}></BreadCrumb>
           <br />
           {cardContainer}
@@ -137,10 +97,15 @@ class App extends React.Component {
             CONTINUA
           </button>
         </div>
-        <Select stores={stores} />
-        {resultsComponent}
-      </div>
-    );
+      ) : (
+        <Result
+          activeIndex={activeIndex}
+          steps={steps}
+          results={results}
+          resultNavigate={resultNavigate}
+        />
+      );
+    return <div className="App">{survey}</div>;
   }
 }
 
