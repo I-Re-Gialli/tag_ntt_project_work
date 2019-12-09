@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: LeroyMerlinLight;
   src: url('../assets/fonts/LeroyMerlinSansLight.eot');
@@ -24,28 +23,30 @@
       url('../assets/fonts/LeroyMerlinSansRegular.ttf') format('truetype'),
       url('../assets/fonts/LeroyMerlinSansRegular.svg#3dumbregular') format('svg');
   }
+ 
 
-  .cardResult{
-    margin: 0px;
-  }
-
+  /*-----media query----*/
+   @media(max-width: 600px){ 
   .Rectangle {
     width: 345px;
+    height: 431px;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
     background-color: #ffffff;
+    position: relative;
   }
 
   .paraResult{
-      font-size: 12px;
-      line-height: 16px;
-      letter-spacing: 0;
-      font-family: LeroyMerlinLight;
-      font-weight: 200;
-      margin: 18px;
+    font-family: LeroyMerlinSans, sans-serif;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 0;
+    color: #000000;
+    margin: 18px;
+    
   }
 
   .imgResult{
-      width: 308px;
+      width: 290px;
       height: 76px;
       margin-left: 15px;
       margin-right: 22px;
@@ -57,19 +58,49 @@
     font-family: LeroyMerlinSans, sans-serif;
     font-size: 18px;
     font-weight: bolder;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 20px;
-    letter-spacing: normal;
+    letter-spacing: 0;
     color: #000000;
     line-height: 20px;
     padding: 20px;
-    letter-spacing: 0;
-    margin-top: 18px;
+    margin: -4px;
     
   }
- 
-
-  /*-----media query----*/
-   @media(max-width: 767px){ 
-    .Rectangle{width: 90%; margin: 5px; margin-left: 18px;}} 
+  h1 {
+    /* margin: 3px; */
+    margin-right: 1000px;
+    /* padding: 7px; */
+    font-family: LeroyMerlinSans, sans-serif;
+    text-align: center;
+    color: #000000;
+    /* display: inline-block; */
+    width: 780px;
+    height: 34px;
+    font-size: 42px;
+  }
+  a:link{
+    text-decoration: none;
+  }
+  .button {
+    display: inline-block;
+    border: none;
+    width: 100%;
+    height: 60px;
+    font-family: LeroyMerlinBold;
+    background-color: #66cc33;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+   
+  }
+  .Rectangle{width: 90%; margin: 5px; margin-left: 18px}
+  .chipWizard{
+    display: flex;
+    flex-direction: column;
+  }
+    }
