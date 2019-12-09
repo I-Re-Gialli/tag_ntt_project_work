@@ -151,18 +151,20 @@
 }
 
 /* desktop */
+/* desktop */
 @media (min-width: 1200px) {
+  .App-container {
+    margin: 0;
+  }
   .App-header {
     border-bottom: 4px solid #66cc33;
   }
-
   .chip-container {
     display: flex;
     flex-direction: row;
     margin-left: 410px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
-
   .chip {
     height: 41px;
     width: 140px;
@@ -175,47 +177,43 @@
     cursor: pointer;
     line-height: 46px;
   }
-
   .step-cards-container {
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
   }
-
+  .step-cards-container.answerList {
+    flex-direction: column;
+  }
   h1 {
     text-align: center;
     margin-left: 330px;
     margin-right: 330px;
-    padding-bottom: 70.3px;
     font-family: LeroyMerlinSans, sans-serif;
     text-align: center;
     color: #000000;
-
     display: inline-block;
     width: 780px;
     height: 34px;
     font-size: 42px;
   }
-
   .step-card {
     flex: 0 0 auto;
     width: 315px;
     cursor: pointer;
     margin-right: 40px;
   }
-
   .button {
     font-family: LeroyMerlinBold;
-    width: 375px;
-    height: 61px;
+    width: 307px;
+    height: 50px;
     background-color: #66cc33;
     color: white;
     font-size: 20px;
     text-align: center;
-    line-height: 60px;
+    line-height: 20px;
     cursor: pointer;
-    margin-top: 66px;
     margin-left: 533px;
+    margin-bottom: 0;
   }
 }
