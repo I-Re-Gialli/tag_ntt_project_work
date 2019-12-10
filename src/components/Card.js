@@ -2,8 +2,8 @@ import React from "react";
 // import urlImage from "../assets/img/";
 class Card extends React.Component {
   render() {
-    const { answer, onClick } = this.props;
-    const { image, title, description } = answer;
+    const { answer, onClick, image } = this.props;
+    const { title, description } = answer;
 
     return image ? (
       <div className="step-card" onClick={onClick}>
