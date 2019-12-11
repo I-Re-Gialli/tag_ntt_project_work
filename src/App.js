@@ -23,13 +23,6 @@ class App extends React.Component {
     this.selectCard = this.selectCard.bind(this);
     this.selectChip = this.selectChip.bind(this);
   }
-  selectChip(chipIndex) {
-    const removedAnswers = this.state.selection.slice(0, chipIndex);
-    this.setState({
-      activeIndex: chipIndex,
-      selection: removedAnswers
-    });
-  }
 
   componentDidMount() {
     listServiceStore.getStore().then(stores => {
@@ -59,15 +52,75 @@ class App extends React.Component {
     this.setState({ selection });
   }
 
-  render() {
-    const {
-      steps,
-      tree,
-      results,
-      selection,
-      activeIndex,
-      completed
-    } = this.state;
+  selectChip(chipIndex) {
+    const removedAnswers = this.state.selection.slice(0, chipIndex);
+    this.setState({
+      activeIndex: chipIndex,
+      selection: removedAnswers
+    });
+  }
+
+  renderCardContainer(currentStep, selectedIndex) {
+    if (this.state.completed) {
+      return null;
+    }
+
+    if (!currentStep) {
+      return null;
+    }
+
+    return (
+      <CardContainer
+        answers={currentStep.answers}
+        selectCard={this.selectCard}
+        question={currentStep.question}
+        selectedIndex={selectedIndex}
+      ></CardContainer>
+    );
+  }
+
+  renderWizard() {
+    if (this.state.completed) {
+      return null;
+    }
+
+    const { steps, selection, activeIndex } = this.state;
+
+    const selectedIndex = selection[activeIndex];
+
+    const currentStep = steps[activeIndex];
+    const isActive = typeof selectedIndex !== "undefined";
+    const activeButton = isActive ? "button" : "button disabled";
+
+    const cardContainer = this.renderCardContainer(currentStep, selectedIndex);
+
+    return (
+      <div className="App-container">
+        <Header />
+        <BreadCrumb
+          activeIndex={activeIndex}
+          selectChip={this.selectChip}
+          steps={steps}
+        />
+        <br />
+        {cardContainer}
+        <button
+          className={activeButton}
+          onClick={this.handleContinue}
+          disabled={!isActive}
+        >
+          CONTINUA
+        </button>
+      </div>
+    );
+  }
+
+  renderResult() {
+    if (!this.state.completed) {
+      return null;
+    }
+
+    const { steps, tree, results, selection, activeIndex } = this.state;
 
     const resultNavigate = listServiceWizard.navigate(
       selection,
@@ -75,50 +128,21 @@ class App extends React.Component {
       steps.length
     );
 
-    const selectedIndex = selection[activeIndex];
-    const isActive = typeof selectedIndex !== "undefined";
-    const activeButton = isActive ? "button" : "button disabled";
+    return (
+      <Result
+        activeIndex={activeIndex}
+        steps={steps}
+        results={results}
+        resultNavigate={resultNavigate}
+      />
+    );
+  }
 
-    const currentStep = steps[activeIndex];
+  render() {
+    const wizard = this.renderWizard();
+    const result = this.renderResult();
 
-    const cardContainer =
-      currentStep && !completed ? (
-        <CardContainer
-          answers={currentStep.answers}
-          selectCard={this.selectCard}
-          question={currentStep.question}
-          selectedIndex={selectedIndex}
-        ></CardContainer>
-      ) : null;
-
-    const survey =
-      currentStep && !completed ? (
-        <div className="App-container">
-          <Header />
-          <BreadCrumb
-            activeIndex={activeIndex}
-            selectChip={this.selectChip}
-            steps={steps}
-          />
-          <br />
-          {cardContainer}
-          <button
-            className={activeButton}
-            onClick={this.handleContinue}
-            disabled={!isActive}
-          >
-            CONTINUA
-          </button>
-        </div>
-      ) : (
-        <Result
-          activeIndex={activeIndex}
-          steps={steps}
-          results={results}
-          resultNavigate={resultNavigate}
-        />
-      );
-    return <div className="App">{survey}</div>;
+    return <div className="App">{wizard || result}</div>;
   }
 }
 
