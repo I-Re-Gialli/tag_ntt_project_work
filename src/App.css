@@ -27,7 +27,9 @@
     url("./assets/fonts/LeroyMerlinSansLight.ttf") format("truetype"),
     url("./assets/fonts/LeroyMerlinSansLight.svg#3dumbregular") format("svg");
 }
-
+*{
+  outline: none;
+}
 .App {
   font-family: LeroyMerlinRegular;
   background-color: #f8f8f8;
@@ -42,8 +44,7 @@
 }
 .App-container {
   height: 575px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 16px;
 }
 .button.disabled {
   background-color: transparent;
@@ -52,6 +53,8 @@
 .blur {
   filter: blur(2px);
 }
+
+
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
