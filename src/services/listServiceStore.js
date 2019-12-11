@@ -1,7 +1,7 @@
-import Api from "./api.js";
+import api from "./api.js";
 
 export default {
   getStore() {
-    return Api().get("stores.json");
+    return api().get("stores.json");
   }
 };

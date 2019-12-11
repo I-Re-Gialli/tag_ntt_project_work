@@ -1,8 +1,13 @@
-import Api from "./api.js";
-
+import api from "./api.js";
+import axios from "axios";
 export default {
   getWizard() {
-    return Api().get("wizard_config.json");
+    return api().get("wizard_config.json");
+  },
+  getWizardModified() {
+    return axios
+      .get("http://www.mocky.io/v2/5df114db31000055008f0dd4")
+      .then(res => res);
   },
   navigate(selection, tree, numberOfSteps) {
     if (numberOfSteps <= 0) {
