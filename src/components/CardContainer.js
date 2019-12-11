@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 class CardContainer extends React.Component {
   render() {
-    const { answers, selectCard, question } = this.props;
+    const { answers, selectCard, question, selectedIndex } = this.props;
 
     const classCardsContainer = answers[0].image
       ? "step-cards-container"
@@ -18,6 +18,7 @@ class CardContainer extends React.Component {
           answer={answer}
           onClick={onClick}
           image={answer.image}
+          selected={index === selectedIndex}
         />
       );
     });

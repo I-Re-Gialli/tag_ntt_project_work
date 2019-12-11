@@ -29,7 +29,6 @@ class App extends React.Component {
       activeIndex: chipIndex,
       selection: removedAnswers
     });
-    console.log(removedAnswers);
   }
 
   componentDidMount() {
@@ -76,8 +75,8 @@ class App extends React.Component {
       steps.length
     );
 
-    const buttonActive = selection[activeIndex];
-    const isActive = typeof buttonActive !== "undefined";
+    const selectedIndex = selection[activeIndex];
+    const isActive = typeof selectedIndex !== "undefined";
     const activeButton = isActive ? "button" : "button disabled";
 
     const currentStep = steps[activeIndex];
@@ -88,6 +87,7 @@ class App extends React.Component {
           answers={currentStep.answers}
           selectCard={this.selectCard}
           question={currentStep.question}
+          selectedIndex={selectedIndex}
         ></CardContainer>
       ) : null;
 

@@ -49,7 +49,9 @@
   background-color: transparent;
   color: #9b9b9b;
 }
-
+.blur {
+  filter: blur(2px);
+}
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
@@ -77,7 +79,6 @@
   .chip-container {
     display: flex;
     flex-direction: row;
-    margin-left: 410px;
     margin-top: 20px;
   }
   .chip {
@@ -131,5 +132,4 @@
     margin-left: 533px;
     margin-bottom: 0;
   }
-
 }

@@ -1,4 +1,4 @@
-import Api from "./Api.js";
+import Api from "./api.js";
 
 export default {
   getWizard() {

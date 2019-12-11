@@ -1,5 +1,5 @@
 import React from "react";
-import "./CardResult.css";
+import "../style/CardResult.css";
 import attivita_1 from "../assets/img/attivita_1.jpg";
 
 class CardResult extends React.Component {
@@ -19,7 +19,12 @@ class CardResult extends React.Component {
           <h2 className="titleResult">{res.title}</h2>
           <img className="imgResult" src={attivita_1} alt="giardino"></img>
           <p className="descriptionResult">{res.description}</p>
-          <a className="button" href={res.url}>
+          <a
+            className="button"
+            href={res.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             ECCO COSA ABBIAMO SCELTO PER TE
           </a>
         </div>
