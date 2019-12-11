@@ -1,0 +1,39 @@
+.step-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+  
+  .step-card {
+    flex: 0 0 auto;
+    width: 315px;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+  
+  .step-card:hover img {
+    opacity: 0.8;
+  }
+  
+  .step-card img {
+    border-radius: 8px;
+    width: 315px;
+    height: 322px;
+  }
+  
+  .step-card .title {
+    font-family: LeroyMerlinBold;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  
+  .step-card .description {
+    font-family: LeroyMerlinLight;
+    margin-top: 8px;
+  }
+  button.stepCardButton {
+    width: 272px;
+    height: 67px;
+    border-radius: 7px;
+    
+  }  

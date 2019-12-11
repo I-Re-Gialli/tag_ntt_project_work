@@ -14,11 +14,11 @@ class CardResult extends React.Component {
     });
 
     const resultMap = selectedResults.map(res => (
-      <div className="Rectangle" key={res.id}>
+      <div className="rectangleResult" key={res.id}>
         <div className="cardResult" key={res.id}>
           <h2 className="titleResult">{res.title}</h2>
           <img className="imgResult" src={attivita_1} alt="giardino"></img>
-          <p className="paraResult">{res.description}</p>
+          <p className="descriptionResult">{res.description}</p>
           <a className="button" href={res.url}>
             ECCO COSA ABBIAMO SCELTO PER TE
           </a>

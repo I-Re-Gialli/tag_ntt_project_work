@@ -23,37 +23,31 @@
       url('../assets/fonts/LeroyMerlinSansRegular.ttf') format('truetype'),
       url('../assets/fonts/LeroyMerlinSansRegular.svg#3dumbregular') format('svg');
   }
- 
 
-  /*-----media query----*/
-   @media(max-width: 600px){ 
-  .Rectangle {
-    width: 345px;
-    height: 431px;
+  .rectangleResult {
+    width: 90%;
+    height: 431px; 
+    margin: 5%;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
     background-color: #ffffff;
     position: relative;
   }
-
-  .paraResult{
+  .descriptionResult{
     font-family: LeroyMerlinSans, sans-serif;
     font-size: 12px;
     line-height: 1.33;
     letter-spacing: 0;
     color: #000000;
     margin: 18px;
-    
   }
-
   .imgResult{
-      width: 290px;
-      height: 76px;
-      margin-left: 15px;
-      margin-right: 22px;
-
+    width: 90%;
+    height: 76px;
+    margin-left: 15px;
+    margin-right: 22px;
   }
 .titleResult {
-    width: 324px;
+    width: 66%;
     height: 40px;
     font-family: LeroyMerlinSans, sans-serif;
     font-size: 18px;
@@ -64,19 +58,6 @@
     line-height: 20px;
     padding: 20px;
     margin: -4px;
-    
-  }
-  h1 {
-    /* margin: 3px; */
-    margin-right: 1000px;
-    /* padding: 7px; */
-    font-family: LeroyMerlinSans, sans-serif;
-    text-align: center;
-    color: #000000;
-    /* display: inline-block; */
-    width: 780px;
-    height: 34px;
-    font-size: 42px;
   }
   a:link{
     text-decoration: none;
@@ -96,11 +77,5 @@
     position: absolute;
     bottom: 0;
     left: 0;
-   
   }
-  .Rectangle{width: 90%; margin: 5px; margin-left: 18px}
-  .chipWizard{
-    display: flex;
-    flex-direction: column;
-  }
-    }
+  

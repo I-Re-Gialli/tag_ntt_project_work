@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.css";
 // import urlImage from "../assets/img/";
 class Card extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Card extends React.Component {
       </div>
     ) : (
       <div className="step-card" onClick={onClick}>
-        <button>{title}</button>
+        <button className="stepCardButton">{title}</button>
       </div>
     );
   }
