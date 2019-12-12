@@ -95,6 +95,7 @@ class Wizard extends React.Component {
     const cardContainer = this.renderCardContainer(currentStep, selectedIndex);
 
     return (
+      <div className="App">
       <div className="App-container">
         <Header />
         <BreadCrumb
@@ -104,6 +105,7 @@ class Wizard extends React.Component {
         />
         <br />
         {cardContainer}
+        <div className="buttonClick">
         <button
           className={activeButton}
           onClick={this.handleContinue}
@@ -111,6 +113,8 @@ class Wizard extends React.Component {
         >
           CONTINUA
         </button>
+        </div>
+      </div>
       </div>
     );
   }

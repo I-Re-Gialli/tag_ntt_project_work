@@ -24,7 +24,7 @@ class CardContainer extends React.Component {
     });
     return (
       <div className="page">
-        <h1>{question}</h1>
+        <h1 className="question">{question}</h1>
         <div className={classCardsContainer}>{cards}</div>
       </div>
     );
