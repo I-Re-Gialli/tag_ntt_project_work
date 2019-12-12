@@ -12,7 +12,7 @@ class Result extends React.Component {
       <div>
         <Header />
         <BreadCrumb activeIndex={activeIndex} steps={steps} />
-        <div style={{ margin: "5%" }}>
+         <div> 
           <h1>Ecco cosa ti aiuterà a svolgere meglio il tuo lavoro!</h1>
         </div>
         <CardResult results={results} resultNavigate={resultNavigate} />

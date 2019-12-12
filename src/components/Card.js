@@ -6,14 +6,19 @@ class Card extends React.Component {
     const { answer, onClick, image, selected } = this.props;
     const { title, description } = answer;
     const classNameImage = selected ? "step-card blur" : "step-card";
-    const classNameButton = selected ? "stepCardButton blur" : "stepCardButton";
+    const classNameIcon = selected ? "fa fa-check-circle fa-4x" : ''
+    const classNameButton = selected ? "stepCardButton focus" : "stepCardButton";
+    
     return image ? (
       <div className="step-card" onClick={onClick}>
+         <div className="iconClick">
         <img
-          className={classNameImage}
+        className={classNameImage}
           src={require(`../assets/img/${image}`)}
           alt="img_alt"
-        />
+        /><i className={classNameIcon}></i>
+        </div>
+      
         <h3 className="title">{title}</h3>
         <p className="description">{description}</p>
       </div>
