@@ -102,7 +102,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    margin-left: 8%;
+    margin-left: 5%;
   }
   .step-cards-container.answerList {
     flex-direction: column;
@@ -113,7 +113,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 6%;
-    margin-left: 8%;
+    margin-left: 5%;
   }
   .step-card {
     flex: 0 0 auto;
