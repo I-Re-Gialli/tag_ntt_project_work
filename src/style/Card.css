@@ -67,7 +67,6 @@
 button.stepCardButton {
   width: 272px;
   height: 67px;
-  border: 0;
   border-radius: 20px;
   margin-top: 10px;
   text-decoration: none;
@@ -75,8 +74,8 @@ button.stepCardButton {
   background-color: #ffffff;
   cursor: pointer;
 }
-button.stepCardButton :focus {
-border-color: #66cc33;
+button.stepCardButton:focus {
+border:3px solid #66cc33;
 }
 .step-cards-container-button {
   display: flex;
