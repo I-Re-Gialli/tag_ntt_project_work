@@ -27,7 +27,7 @@
     url("./assets/fonts/LeroyMerlinSansLight.ttf") format("truetype"),
     url("./assets/fonts/LeroyMerlinSansLight.svg#3dumbregular") format("svg");
 }
-*{
+* {
   outline: none;
 }
 .App {
@@ -43,9 +43,9 @@
   margin: 3px;
 }
 .App-container {
-    width: 100%;
-    height: 100%;
-    background-color: #f8f8f8;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
 }
 
 .button.disabled {
@@ -55,8 +55,6 @@
 .blur {
   filter: blur(2px);
 }
-
-
 
 /* MEDIA QUERY BREAKPONT EXAMPLE */
 
@@ -104,11 +102,22 @@
     justify-content: center;
     margin-left: 5%;
   }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: LeroyMerlinSans;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1.07;
+  }
+
   .step-cards-container.answerList {
     flex-direction: column;
   }
-  
-  .step-cards-container-button{
+
+  .step-cards-container-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,7 +131,6 @@
     margin-right: 40px;
   }
   .button {
-
     font-family: LeroyMerlinBold;
     width: 40%;
     height: 50px;
