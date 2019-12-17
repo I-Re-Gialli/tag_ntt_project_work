@@ -1,6 +1,6 @@
-### LeroyMerlin Wizard by I Re Gialli ###
+# LeroyMerlin Wizard by I Re Gialli #
 
-# The Project #
+## The Project ##
 This is a multi-platform Web App that allows the users to do a personalized search. They can select from different cards and at the end of the wizard, they will be redirected on the page with the products that they need.
 
 # The Team #
