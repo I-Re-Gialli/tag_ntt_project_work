@@ -12,7 +12,7 @@ class Wizard extends React.Component {
     super(props);
     this.state = {
       stores: [],
-      steps: [],
+      steps: undefined,
       tree: {},
       results: [],
       selection: [],
@@ -81,6 +81,10 @@ class Wizard extends React.Component {
 
   renderWizard() {
     if (this.state.completed) {
+      return null;
+    }
+
+    if (!this.state.steps) {
       return null;
     }
 
