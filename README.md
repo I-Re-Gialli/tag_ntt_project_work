@@ -3,10 +3,10 @@
 ## The Project ##
 This is a multi-platform Web App that allows the users to do a personalized search. They can select from different cards and at the end of the wizard, they will be redirected on the page with the products that they need.
 
-# The Team #
+## The Team ##
 This is developed by Matteo Bernabei [https://github.com/mtberna], Gerardo Vollono [https://github.com/DinoVol], Andrea Pessot [https://github.com/andreapessot], Nina Micleusanu [https://github.com/ninamicle]. The development of this project was proposed by NTTDATA for LeroyMerlin.
 
-# Technologies # 
+## Technologies ## 
 We used React, axios for HTTP calls and CSS.
 
 ## Grafiche
